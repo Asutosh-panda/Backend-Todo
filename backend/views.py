@@ -1,22 +1,14 @@
-from django.shortcuts import render,HttpResponse,HttpResponseRedirect
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework import status
-from rest_framework.authtoken.models import Token
-from .serializer import Todoserializer,Userserializer
-from .models import TodoList
-from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
-from django.contrib.auth import authenticate,get_user_model,login,logout
-from django.contrib.auth.forms import UserCreationForm
+from rest_framework.decorators import api_view,permission_classes
 
+from .serializer import Todoserializer,Userserializer,UserSerializerWithToken
+from .models import TodoList
+
+from django.contrib.auth.forms import UserCreationForm
+from rest_framework.permissions import AllowAny
 from django.contrib.auth.models import User
 from rest_framework import permissions, status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import UserSerializer, UserSerializerWithToken
 
 
 @api_view(['GET'])
