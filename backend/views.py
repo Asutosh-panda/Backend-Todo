@@ -46,6 +46,10 @@ def registerpage(request):
          return Response(serializer.errors)
 
     
+@api_view(['GET'])
+def getuser(request):
+    return Response(request.user.id)
+
 @api_view(['POST'])
 def indexpost(request):
     serializer= Todoserializer(data=request.data)
