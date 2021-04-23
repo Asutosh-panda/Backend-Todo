@@ -42,7 +42,7 @@ def registerpage(request):
                 if form.is_valid():
                     form.save()
                 else:
-                    return Response(serializer.errors)
+                    return Response(form.errors)
          return Response(serializer.errors)
 
     
